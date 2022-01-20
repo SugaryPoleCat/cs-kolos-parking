@@ -2,19 +2,20 @@
 
 namespace cs_kolos_parking
 {
-    internal class MiejsceParkingowe
+    internal class MiejsceParkingowe:IComparable<MiejsceParkingowe>
+     
     {
-        private Osoba wlasciciel;
+        public Osoba wlasciciel;
         int numerMiejsca;
         public bool wolne;
         int nrMiesiaca;
         static double oplata = 20;
         static int biezacyNumerMiejsca = 100;
-        public Osoba Wlasciciel
+        /*public Osoba Wlasciciel
         {
             get { return wlasciciel; }
             set { wlasciciel = value;}
-        }
+        }*/
         public int NumerMiejsca
         {
             get { return numerMiejsca;}
@@ -63,6 +64,15 @@ namespace cs_kolos_parking
         {
             wolne = true;
             wlasciciel = null;
+        }
+
+        public int CompareTo(MiejsceParkingowe other)
+        {
+            if (this.wlasciciel.Nazwisko == other.wlasciciel.Nazwisko)
+            {
+                return this.wlasciciel.Imie.CompareTo(other.wlasciciel.Imie);
+            }
+            return this.wlasciciel.Nazwisko.CompareTo(other.wlasciciel.Nazwisko);
         }
     }
 }
