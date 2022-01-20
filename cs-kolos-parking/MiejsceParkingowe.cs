@@ -4,12 +4,22 @@ namespace cs_kolos_parking
 {
     internal class MiejsceParkingowe
     {
-        Osoba wlasciciel;
+        private Osoba wlasciciel;
         int numerMiejsca;
-        Boolean wolne;
+        public bool wolne;
         int nrMiesiaca;
         static double oplata = 20;
         static int biezacyNumerMiejsca = 100;
+        public Osoba Wlasciciel
+        {
+            get { return wlasciciel; }
+            set { wlasciciel = value;}
+        }
+        public int NumerMiejsca
+        {
+            get { return numerMiejsca;}
+            set { numerMiejsca = value;}
+        }
         public MiejsceParkingowe()
         {
             // kod
