@@ -18,7 +18,7 @@ namespace cs_kolos_parking
         {
             // kod
 
-            numerMiejsca = biezacyNumerMiejsca++;
+            numerMiejsca = ++biezacyNumerMiejsca;
             nrMiesiaca = (int)(DateTime.Now.DayOfWeek - 1);
             wolne = true;
         }
@@ -26,7 +26,7 @@ namespace cs_kolos_parking
         public MiejsceParkingowe(Osoba wlasciciel)
         {
             wolne = false;
-            numerMiejsca = biezacyNumerMiejsca++;
+            numerMiejsca = ++biezacyNumerMiejsca;
             this.wlasciciel = wlasciciel;
         }
 
