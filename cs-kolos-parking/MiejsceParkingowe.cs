@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace cs_kolos_parking
 {
@@ -37,12 +33,26 @@ namespace cs_kolos_parking
             if (!wolne)
             {
                 result += $" {wlasciciel.ToString()}";
-            } else
+            }
+            else
             {
                 result += " MIEJSCE WOLNE";
             }
             result += $", {oplata.ToString("C")}";
             return result;
+        }
+
+        public string Zaplac(int nrMiesiaca)
+        {
+            this.nrMiesiaca = nrMiesiaca;
+            string result = $"Pan / i {wlasciciel.Imie} {wlasciciel.Nazwisko} uiścil oplate w kwocie: {oplata} za miesiac: {this.nrMiesiaca}";
+            return result;
+        }
+
+        public void Zwolnij()
+        {
+            wolne = true;
+            wlasciciel = null;
         }
     }
 }
