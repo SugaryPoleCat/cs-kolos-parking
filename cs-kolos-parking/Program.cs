@@ -10,7 +10,16 @@ namespace cs_kolos_parking
     {
         static void Main(string[] args)
         {
+            Osoba maciek = new Osoba("maciej","nowak","32984743928");
+            MiejsceParkingowe miejsce1 =new MiejsceParkingowe();
+            MiejsceParkingowe miejsce2 = new MiejsceParkingowe(maciek);
 
+            Console.WriteLine(maciek.ToString());
+
+            Console.WriteLine(miejsce1.ToString());
+            Console.WriteLine(miejsce2.ToString());
+
+            Console.ReadKey();
         }
     }
 }

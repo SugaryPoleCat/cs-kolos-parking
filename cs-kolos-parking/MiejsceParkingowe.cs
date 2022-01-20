@@ -14,11 +14,11 @@ namespace cs_kolos_parking
         int nrMiesiaca;
         static double oplata = 20;
         static int biezacyNumerMiejsca = 100;
-        MiejsceParkingowe()
+        public MiejsceParkingowe()
         {
             // kod
 
-            biezacyNumerMiejsca++;
+            numerMiejsca = biezacyNumerMiejsca++;
             nrMiesiaca = (int)(DateTime.Now.DayOfWeek - 1);
             wolne = true;
         }
@@ -26,12 +26,22 @@ namespace cs_kolos_parking
         public MiejsceParkingowe(Osoba wlasciciel)
         {
             wolne = false;
+            numerMiejsca = biezacyNumerMiejsca++;
             this.wlasciciel = wlasciciel;
         }
 
         public override string ToString()
         {
-            string result = $"{numerMiejsca}: {wlasciciel.ToString()}, {oplata.ToString("C")}";
+            string result = $"{numerMiejsca}:";
+            // sprawdznie czy miejsce jest wolne czy nie
+            if (!wolne)
+            {
+                result += $" {wlasciciel.ToString()}";
+            } else
+            {
+                result += " MIEJSCE WOLNE";
+            }
+            result += $", {oplata.ToString("C")}";
             return result;
         }
     }
